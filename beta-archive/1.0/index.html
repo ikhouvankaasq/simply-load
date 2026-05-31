@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simply Load - Beta Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Simply Load <span>β</span></h2>
+            </div>
+
+            <div class="section-title">Export Options</div>
+            <div class="export-buttons">
+                <button id="download-single" class="btn btn-primary">Download Single HTML</button>
+                <button id="download-multiple" class="btn btn-secondary">Download HTML + CSS</button>
+            </div>
+
+            <div class="section-title">Drag Elements</div>
+            <div class="element-list">
+                <div class="draggable-item" draggable="true" data-type="hero">
+                    <i>🚀</i> Hero Section
+                </div>
+                <div class="draggable-item" draggable="true" data-type="features">
+                    <i>📋</i> Features Grid
+                </div>
+                <div class="draggable-item" draggable="true" data-type="content">
+                    <i>✍️</i> Text Block
+                </div>
+                <div class="draggable-item" draggable="true" data-type="footer">
+                    <i>🔒</i> Simple Footer
+                </div>
+            </div>
+            
+            <div class="sidebar-instruction">
+                <p><strong>Tip:</strong> Drop elements on the right, click any text to edit it directly, or hover to delete a section.</p>
+            </div>
+        </aside>
+
+        <main class="canvas-container">
+            <div id="canvas" class="canvas">
+                <div class="canvas-placeholder">Drag and drop elements here to start building...</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
