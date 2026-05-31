@@ -1,0 +1,250 @@
+/* --- System & Builder UI Styles --- */
+:root {
+    --bg-dark: #1e1e24;
+    --bg-sidebar: #111116;
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --text-light: #f3f4f6;
+    --text-muted: #9ca3af;
+    --canvas-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    width: 320px;
+    background-color: var(--bg-sidebar);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #2d2d39;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.logo h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--accent);
+    font-size: 0.8rem;
+    vertical-align: super;
+}
+
+.section-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    margin-top: 24px;
+    border-bottom: 1px solid #2d2d39;
+    padding-bottom: 4px;
+}
+
+.export-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary { background-color: var(--accent); color: white; }
+.btn-primary:hover { background-color: var(--accent-hover); }
+.btn-secondary { background-color: #2d2d39; color: var(--text-light); }
+.btn-secondary:hover { background-color: #3e3e4f; }
+
+.element-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.draggable-item {
+    background-color: #1e1e24;
+    padding: 12px;
+    border: 1px solid #2d2d39;
+    border-radius: 8px;
+    cursor: grab;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.draggable-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.draggable-item i { font-style: normal; }
+
+.sidebar-instruction {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    background: #1e1e24;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+/* Canvas Area Styling */
+.canvas-container {
+    flex-grow: 1;
+    background-color: #1a1a1a;
+    padding: 40px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.canvas {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--canvas-bg);
+    min-height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    color: #333;
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.canvas-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+    font-size: 1rem;
+    width: 80%;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Actions inside the builder */
+.dropped-component {
+    position: relative;
+    transition: outline 0.2s ease;
+}
+
+.dropped-component:hover {
+    outline: 2px dashed var(--accent);
+}
+
+.delete-btn {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    z-index: 100;
+}
+
+.dropped-component:hover .delete-btn {
+    display: block;
+}
+
+
+/* --- Exportable Components Styles (Included in user's downloads) --- */
+.nav-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+.nav-logo { font-weight: bold; font-size: 1.2rem; color: #111; }
+.nav-links a { text-decoration: none; color: #555; margin-left: 20px; font-size: 0.95rem; }
+
+.hero-section {
+    padding: 80px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #1e1e24;
+}
+
+.footer-section {
+    padding: 30px;
+    background: #111116;
+    color: #9ca3af;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Atomic Element Design Specs */
+.el-heading {
+    padding: 15px 40px 5px 40px;
+    color: #111116;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.el-paragraph {
+    padding: 10px 40px;
+    color: #4b5563;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.el-button-wrap {
+    padding: 15px 40px;
+}
+.el-button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.el-image-wrap {
+    padding: 20px 40px;
+    text-align: center;
+}
+.el-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
