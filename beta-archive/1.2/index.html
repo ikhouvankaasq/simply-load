@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simply Load - Studio Beta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar left-sidebar">
+            <div class="logo">
+                <h2>Simply Load <span>v0.3 β</span></h2>
+            </div>
+
+            <div class="section-title">Export Options</div>
+            <div class="export-buttons">
+                <button id="download-single" class="btn btn-primary">Download Single HTML</button>
+                <button id="download-multiple" class="btn btn-secondary">Download HTML + CSS</button>
+            </div>
+
+            <div class="section-title">Structural Frameworks</div>
+            <div class="element-list">
+                <div class="draggable-item" draggable="true" data-type="navbar"><i>🌐</i> Nav Section</div>
+                <div class="draggable-item" draggable="true" data-type="hero"><i>🚀</i> Hero Container</div>
+            </div>
+
+            <div class="section-title">Atomic Elements</div>
+            <div class="element-list">
+                <div class="draggable-item" draggable="true" data-type="heading"><i>#</i> Main Heading</div>
+                <div class="draggable-item" draggable="true" data-type="paragraph"><i>¶</i> Text Paragraph</div>
+                <div class="draggable-item" draggable="true" data-type="link-btn"><i>🔘</i> Link Button</div>
+            </div>
+        </aside>
+
+        <main class="canvas-container">
+            <div id="canvas" class="canvas">
+                <div class="canvas-placeholder">Drag elements here. Click any dropped element to style or link it!</div>
+            </div>
+        </main>
+
+        <aside class="sidebar right-sidebar" id="inspector">
+            <div class="inspector-title">Properties Panel</div>
+            <div id="inspector-hint" class="inspector-empty-state">
+                Click an element on the canvas to open style controls.
+            </div>
+            
+            <div id="inspector-controls" class="hidden">
+                <div class="control-group">
+                    <label>Selected Type:</label>
+                    <span id="active-element-tag" class="tag-badge">-</span>
+                </div>
+
+                <div class="control-group link-only hidden" id="link-field-group">
+                    <label for="prop-link">Destination URL:</label>
+                    <input type="text" id="prop-link" placeholder="https://example.com">
+                    <span class="input-helper">Redirect target for production file</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="prop-color">Text Color:</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="prop-color" value="#000000">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="prop-size">Font Size (px):</label>
+                    <input type="number" id="prop-size" min="8" max="120" value="16">
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
