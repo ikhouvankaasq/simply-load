@@ -1,0 +1,137 @@
+:root {
+    --bg-dark: #141417;
+    --bg-sidebar: #1e1e24;
+    --border-color: #2d2d39;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --text-light: #f3f4f6;
+    --text-muted: #9ca3af;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 280px 1fr 300px;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sidebar Framework */
+.sidebar {
+    background-color: var(--bg-sidebar);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+}
+.right-sidebar {
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+    background-color: #1a1a22;
+}
+
+.logo h2 { font-size: 1.3rem; margin-bottom: 20px; }
+.logo span { color: var(--accent); font-size: 0.8rem; vertical-align: super; }
+.section-title, .inspector-title {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--text-muted); margin: 20px 0 10px 0; padding-bottom: 4px; border-bottom: 1px solid var(--border-color);
+}
+
+/* UI Elements */
+.export-buttons { display: flex; flex-direction: column; gap: 8px; }
+.btn { padding: 10px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.btn-primary { background-color: var(--accent); color: white; }
+.btn-primary:hover { background-color: var(--accent-hover); }
+.btn-secondary { background-color: #2d2d39; color: var(--text-light); }
+.btn-secondary:hover { background-color: #3b3b4f; }
+
+.element-list { display: flex; flex-direction: column; gap: 6px; }
+.draggable-item {
+    background-color: var(--bg-dark); padding: 10px; border: 1px solid var(--border-color);
+    border-radius: 6px; cursor: grab; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
+}
+.draggable-item:hover { border-color: var(--accent); }
+
+/* Dynamic Canvas Space (Addresses Goal #1) */
+.canvas-container {
+    background-color: #0b0b0d;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    color: #222;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    
+    /* Crucial settings for dynamic height adjustment */
+    height: max-content;
+    min-height: 100%; 
+    padding: 20px;
+}
+
+.canvas-placeholder {
+    color: #aaa; text-align: center; margin-top: 40px; font-size: 0.95rem; pointer-events: none;
+}
+
+/* Builder Overlay Mechanics */
+.dropped-component {
+    position: relative;
+    margin-bottom: 4px;
+}
+.dropped-component:hover {
+    outline: 1px dashed var(--accent);
+}
+.delete-btn {
+    display: none; position: absolute; top: -10px; right: 5px;
+    background: #ef4444; color: white; border: none; padding: 2px 6px;
+    border-radius: 4px; cursor: pointer; font-size: 0.65rem; z-index: 50;
+}
+.dropped-component:hover .delete-btn { display: block; }
+
+/* Selection Feedback Highlight */
+.editor-selected {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 2px;
+}
+
+/* Inspector Style Layouts */
+.inspector-empty-state { color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-top: 20px; line-height: 1.4; }
+.control-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.control-group label { font-size: 0.8rem; color: var(--text-muted); }
+.tag-badge { background: var(--accent); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; width: max-content; font-family: monospace; }
+.hidden { display: none !important; }
+input[type="text"], input[type="number"] {
+    background: var(--bg-dark); border: 1px solid var(--border-color); color: white; padding: 8px; border-radius: 4px; font-size: 0.9rem;
+}
+.input-helper { font-size: 0.7rem; color: #71717a; }
+.color-picker-wrapper { display: flex; align-items: center; }
+input[type="color"] { border: none; width: 40px; height: 30px; background: transparent; cursor: pointer; }
+
+/* --- Production CSS Modules (Cleaned for Export) --- */
+.nav-block { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #fafafa; border-bottom: 1px solid #eee; }
+.nav-brand { font-weight: bold; }
+.nav-menu a { color: #4f46e5; text-decoration: none; margin-left: 15px; font-size: 0.9rem; }
+.hero-block { padding: 50px 30px; text-align: center; background: #f3f4f6; border-radius: 6px; }
+.heading-block { font-size: 2rem; font-weight: 800; margin-bottom: 10px; color: #111; }
+.para-block { font-size: 1rem; line-height: 1.6; color: #374151; margin-bottom: 8px; }
+.btn-block { display: inline-block; background: #6366f1; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; text-align: center; }
